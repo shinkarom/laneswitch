@@ -1,5 +1,6 @@
-extends Node2D
+extends ParallaxBackground
 
+export(int) var scroll_speed = 0
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -12,13 +13,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_QuitButton_button_up():
-	get_tree().quit()
-
-
-func _on_PlayButton_button_up():
-	get_tree().change_scene("res://Nodes/GameScreen/GameScreen.tscn")
+func _process(delta):
+	var half = 300
+	var amount = scroll_speed * delta
+	var new_y = $ParallaxLayer/Sprite.offset.y - amount
+	if new_y < -600:
+		new_y += 600
+	$ParallaxLayer/Sprite.offset.y = new_y

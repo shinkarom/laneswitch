@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://images/cars.png" type="Texture" id=1]
+[ext_resource path="res://Nodes/Car/Car.gd" type="Script" id=2]
+
+[node name="Car" type="Node2D"]
+rotation = 3.14159
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 3
