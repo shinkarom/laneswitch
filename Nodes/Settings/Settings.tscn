@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Nodes/Settings/Settings.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Kenney Blocks.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/Kenney Rocket.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Nodes/Player/Player.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 3 )
 
 [node name="Settings" type="Node2D"]
 script = ExtResource( 1 )
@@ -22,4 +28,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 280.653, 178.381 )
+
+[node name="ButtonPrevious" type="Button" parent="."]
+margin_left = 138.865
+margin_top = 132.002
+margin_right = 170.865
+margin_bottom = 188.002
+custom_fonts/font = SubResource( 2 )
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonNext" type="Button" parent="."]
+margin_left = 388.871
+margin_top = 132.002
+margin_right = 420.871
+margin_bottom = 188.002
+custom_fonts/font = SubResource( 2 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
+[connection signal="button_up" from="ButtonPrevious" to="." method="_on_ButtonPrevious_button_up"]
+[connection signal="button_up" from="ButtonNext" to="." method="_on_ButtonNext_button_up"]

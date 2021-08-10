@@ -18,3 +18,21 @@ func _ready():
 
 func _on_Button_button_up():
 	get_tree().change_scene("res://Nodes/MainMenu/MainMenu.tscn")
+
+
+func _on_ButtonNext_button_up():
+	var f = Globals.player_frame
+	f = f+1
+	if f > 11:
+		f = 8
+	$Player/Sprite.frame = f
+	Globals.player_frame = f
+
+
+func _on_ButtonPrevious_button_up():
+	var f = Globals.player_frame
+	f = f-1
+	if f < 8:
+		f = 11
+	$Player/Sprite.frame = f
+	Globals.player_frame = f

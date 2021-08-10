@@ -8,9 +8,13 @@ extends "res://Nodes/Car/Car.gd"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Sprite.frame = Globals.player_frame
+	$Sprite.frame = randi() % 8
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	position.y -= Globals.speed * delta
+	if position.y < -117:
+		queue_free()
+
+
