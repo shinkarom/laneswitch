@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Nodes/Credits/Credits.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Kenney Blocks.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/Kenney Rocket.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 3 )
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 27.3518
+margin_top = 514.927
+margin_right = 129.352
+margin_bottom = 566.927
+custom_fonts/font = SubResource( 1 )
+text = "Back"
+flat = true
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 0.033
+anchor_bottom = 0.023
+margin_left = 71.0
+margin_top = 34.0
+margin_right = 507.2
+margin_bottom = 201.2
+custom_fonts/font = SubResource( 2 )
+text = "(c) 2021 Roman \"shinkarom\" Shynkarenko
+
+Graphics: 2D Traffic Racer Asset by MadFireOn on itch.io
+
+Fonts: Kenney Blocks, Kenney High by kenney.nl"
+autowrap = true
+
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

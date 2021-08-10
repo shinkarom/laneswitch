@@ -22,3 +22,11 @@ func _on_QuitButton_button_up():
 
 func _on_PlayButton_button_up():
 	get_tree().change_scene("res://Nodes/GameScreen/GameScreen.tscn")
+
+
+func _on_CreditsButton_button_up():
+	get_tree().change_scene("res://Nodes/Credits/Credits.tscn")
+
+
+func _on_SettingsButton_button_up():
+	get_tree().change_scene("res://Nodes/Settings/Settings.tscn")
