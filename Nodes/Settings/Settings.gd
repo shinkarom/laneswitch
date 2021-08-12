@@ -19,6 +19,11 @@ func _ready():
 func _on_Button_button_up():
 	get_tree().change_scene("res://Nodes/MainMenu/MainMenu.tscn")
 
+func _input(event):
+	if event.is_action_released("ui_left"):
+		_on_ButtonPrevious_button_up()
+	else: if event.is_action_released("ui_right"):
+		_on_ButtonNext_button_up()
 
 func _on_ButtonNext_button_up():
 	var f = Globals.player_frame
