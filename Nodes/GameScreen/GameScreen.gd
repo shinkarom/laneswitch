@@ -2,18 +2,24 @@ extends Node2D
 
 
 var TrafficCar = load("res://Nodes/TrafficCar/TrafficCar.tscn")
-var tcar
-
+var TrafficRow = load("res://Nodes/TrafficRow/TrafficRow.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
 	_on_Globals_speed_changed(Globals.speed)
-	tcar = TrafficCar.instance()
-	add_child(tcar)
+	create_row()
 	$ScoreLabel.raise()
 	$SpeedLabel.raise()
-	tcar.lane = randi() % 3
-	tcar.position.y = 600+58
+
+func create_row():
+	var row = TrafficRow.instance()
+	add_child(row)
+	row.connect("moved_onscreen", self, "row_onscreen")
+
+func row_onscreen():
+	create_row()
+	$ScoreLabel.raise()
+	$SpeedLabel.raise()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
