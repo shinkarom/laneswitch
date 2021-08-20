@@ -4,12 +4,12 @@
 [ext_resource path="res://fonts/Kenney Blocks.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://fonts/Kenney Rocket.ttf" type="DynamicFontData" id=3]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 size = 30
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 18
+[sub_resource type="DynamicFont" id=3]
+size = 25
 font_data = ExtResource( 3 )
 
 [node name="Credits" type="Control"]
@@ -25,7 +25,7 @@ margin_left = 27.3518
 margin_top = 514.927
 margin_right = 129.352
 margin_bottom = 566.927
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Back"
 flat = true
 
@@ -36,7 +36,7 @@ margin_left = 71.0
 margin_top = 34.0
 margin_right = 507.2
 margin_bottom = 201.2
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "(c) 2021 Roman \"shinkarom\" Shynkarenko
 
 Graphics: 2D Traffic Racer Asset by MadFireOn on itch.io

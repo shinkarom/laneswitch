@@ -5,3 +5,5 @@
 
 [node name="TrafficCar" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]

@@ -1,20 +1,28 @@
 extends Node2D
 
 signal moved_onscreen
+signal moved_offscreen
+signal collision
 var TrafficCar = load("res://Nodes/TrafficCar/TrafficCar.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	position.x = 0
 	position.y = 800
-	if randi()%2 == 0: create_car(0)
-	if randi()%2 == 0:create_car(1)
-	if randi()%2 == 0:create_car(2)
+
+func init(num):
+	if (num & 4) != 0: create_car(0)
+	if (num & 2) != 0: create_car(1)
+	if (num & 1) != 0: create_car(2)
 
 func create_car(lane):
 	var tcar = TrafficCar.instance()
+	tcar.connect("collision",self,"collision")
 	tcar.lane = lane
 	add_child(tcar)
+
+func collision():
+	emit_signal("collision")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,4 +32,5 @@ func _process(delta):
 	if oldy >= z and position.y < z:
 		emit_signal("moved_onscreen")
 	if position.y < -150:
+		emit_signal("moved_offscreen")
 		queue_free()

@@ -30,3 +30,7 @@ func _on_CreditsButton_button_up():
 
 func _on_SettingsButton_button_up():
 	get_tree().change_scene("res://Nodes/Settings/Settings.tscn")
+
+
+func _on_HelpButton_button_up():
+	get_tree().change_scene("res://Nodes/HelpScreen/HelpScreen.tscn")
