@@ -16,6 +16,9 @@ func _ready():
 	$ScoreLabel.raise()
 	$SpeedLabel.raise()
 	GlobalMusic.playMenuMusic()
+	$Tween.interpolate_property($StartLabel, "custom_colors/font_color:a8", 255, 0,
+	 2,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT,2)
+	$Tween.start()
 
 func create_row(num):
 	var row = TrafficRow.instance()
@@ -39,14 +42,15 @@ func next_row(num):
 		_: ar = [7]
 	return ar[randi() % ar.size()]
 
-func row_onscreen():
+func row_onscreen(empty):
 	create_row(next_row(this_row))
 	$ScoreLabel.raise()
 	$SpeedLabel.raise()
 
-func row_offscreen():
+func row_offscreen(empty):
 	Globals.speed_row_tally += 1
-	Globals.score_row_tally += 1
+	if not empty:
+		Globals.score_row_tally += 1
 	if Globals.speed_row_tally >= Globals.rows_for_speed_increase:
 		Globals.speed_row_tally -= Globals.rows_for_speed_increase
 		Globals.speed += Globals.speed_delta
