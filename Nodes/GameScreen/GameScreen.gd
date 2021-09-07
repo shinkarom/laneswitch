@@ -15,6 +15,7 @@ func _ready():
 	create_row(this_row)
 	$ScoreLabel.raise()
 	$SpeedLabel.raise()
+	GlobalMusic.playMenuMusic()
 
 func create_row(num):
 	var row = TrafficRow.instance()
@@ -57,14 +58,20 @@ func row_collision():
 	get_tree().paused = true
 	$ScoreLabel.visible = false
 	$SpeedLabel.visible = false
-	$GameOverPopup/GameOverScoreLabel.text = "Score: "+ str(Globals.score)
-	$GameOverPopup.visible = true
+	var GameOverPopup = load("res://Nodes/GameOverPopup/GameOverPopup.tscn").instance()
+	add_child(GameOverPopup)
+	GameOverPopup.popup_centered()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 func _input(event):
+	if event.is_action_released("ui_cancel"):
+		get_tree().set_input_as_handled()
+		var PauseMenu = load("res://Nodes/PauseMenu/PauseMenu.tscn").instance()
+		add_child(PauseMenu)
+		PauseMenu.popup_centered()
 	if event.is_action_released("ui_left"):
 		if $Player.lane > 0:
 			$Player.lane -= 1
