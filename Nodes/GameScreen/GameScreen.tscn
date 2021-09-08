@@ -62,3 +62,4 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="."]
 
 [connection signal="tree_entered" from="." to="." method="_on_GameScreen_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_GameScreen_tree_exited"]

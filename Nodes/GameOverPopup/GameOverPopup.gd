@@ -17,15 +17,18 @@ func _ready():
 
 
 func _on_RestartButton_pressed():
+	GlobalMusic.playButtonSound()
 	get_tree().paused = false
 	get_tree().change_scene("res://Nodes/GameScreen/GameScreen.tscn")
 
 
 func _on_QuitButton_pressed():
+	GlobalMusic.playButtonSound()
 	get_tree().paused = false
 	get_tree().quit()
 
 
 func _on_MainMenuButton_pressed():
+	GlobalMusic.playButtonSound()
 	get_tree().paused = false
 	get_tree().change_scene("res://Nodes/MainMenu/MainMenu.tscn")

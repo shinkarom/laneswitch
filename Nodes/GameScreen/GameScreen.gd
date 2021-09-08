@@ -15,7 +15,7 @@ func _ready():
 	create_row(this_row)
 	$ScoreLabel.raise()
 	$SpeedLabel.raise()
-	GlobalMusic.playMenuMusic()
+	GlobalMusic.playGameMusic()
 	$Tween.interpolate_property($StartLabel, "custom_colors/font_color:a8", 255, 0,
 	 2,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT,2)
 	$Tween.start()
@@ -62,6 +62,7 @@ func row_collision():
 	get_tree().paused = true
 	$ScoreLabel.visible = false
 	$SpeedLabel.visible = false
+	GlobalMusic.stop()
 	var GameOverPopup = load("res://Nodes/GameOverPopup/GameOverPopup.tscn").instance()
 	add_child(GameOverPopup)
 	GameOverPopup.popup_centered()
@@ -115,3 +116,7 @@ func _on_MainMenuButton_button_up():
 
 func _on_QuitButton_button_up():
 	quit()
+
+
+func _on_GameScreen_tree_exited():
+	GlobalMusic.playMenuMusic()

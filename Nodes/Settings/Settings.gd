@@ -18,6 +18,7 @@ func _ready():
 
 func _on_Button_button_up():
 	get_tree().change_scene("res://Nodes/MainMenu/MainMenu.tscn")
+	GlobalMusic.playButtonSound()
 
 func _input(event):
 	if event.is_action_released("ui_left"):
@@ -26,6 +27,7 @@ func _input(event):
 		_on_ButtonNext_button_up()
 
 func _on_ButtonNext_button_up():
+	GlobalMusic.playButtonSound()
 	var f = Globals.player_frame
 	f = f+1
 	if f > 11:
@@ -35,6 +37,7 @@ func _on_ButtonNext_button_up():
 
 
 func _on_ButtonPrevious_button_up():
+	GlobalMusic.playButtonSound()
 	var f = Globals.player_frame
 	f = f-1
 	if f < 8:

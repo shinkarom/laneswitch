@@ -18,3 +18,4 @@ func _ready():
 
 func _on_Button_button_up():
 	get_tree().change_scene("res://Nodes/MainMenu/MainMenu.tscn")
+	GlobalMusic.playButtonSound()

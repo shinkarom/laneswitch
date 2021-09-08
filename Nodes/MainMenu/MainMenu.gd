@@ -17,20 +17,24 @@ func _ready():
 
 
 func _on_QuitButton_button_up():
+	GlobalMusic.playButtonSound()
 	get_tree().quit()
 
 
 func _on_PlayButton_button_up():
 	get_tree().change_scene("res://Nodes/GameScreen/GameScreen.tscn")
+	GlobalMusic.playButtonSound()
 
 
 func _on_CreditsButton_button_up():
 	get_tree().change_scene("res://Nodes/Credits/Credits.tscn")
-
+	GlobalMusic.playButtonSound()
 
 func _on_SettingsButton_button_up():
 	get_tree().change_scene("res://Nodes/Settings/Settings.tscn")
-
+	GlobalMusic.playButtonSound()
 
 func _on_HelpButton_button_up():
 	get_tree().change_scene("res://Nodes/HelpScreen/HelpScreen.tscn")
+	GlobalMusic.playButtonSound()
+	
