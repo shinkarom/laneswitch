@@ -32,7 +32,7 @@ func create_row(num):
 func next_row(num):
 	var ar
 	match num:
-		0: ar = [0, 1, 2, 3, 4, 5, 6]
+		0: ar = [1, 2, 3, 4, 5, 6]
 		1: ar = [0, 1, 2, 3, 4, 5]
 		2: ar = [0, 2]
 		3: ar = [0, 1, 2, 3]

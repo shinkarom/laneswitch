@@ -5,11 +5,11 @@
 [ext_resource path="res://fonts/Kenney Rocket.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Nodes/Player/Player.tscn" type="PackedScene" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 40
 font_data = ExtResource( 3 )
 
@@ -21,7 +21,7 @@ margin_left = 36.8654
 margin_top = 495.9
 margin_right = 138.865
 margin_bottom = 547.9
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Back"
 flat = true
 __meta__ = {
@@ -36,7 +36,7 @@ margin_left = 138.865
 margin_top = 132.002
 margin_right = 170.865
 margin_bottom = 188.002
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "<"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -47,8 +47,44 @@ margin_left = 388.871
 margin_top = 132.002
 margin_right = 420.871
 margin_bottom = 188.002
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SoundButton" type="CheckButton" parent="."]
+margin_left = 20.2165
+margin_top = 308.005
+margin_right = 213.217
+margin_bottom = 362.005
+custom_fonts/font = SubResource( 1 )
+pressed = true
+text = "Sound"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicSlider" type="HSlider" parent="."]
+margin_left = 213.217
+margin_top = 380.546
+margin_right = 352.217
+margin_bottom = 396.546
+max_value = 1.0
+step = 0.05
+value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicButton" type="CheckButton" parent="."]
+margin_left = 20.2165
+margin_top = 362.005
+margin_right = 220.217
+margin_bottom = 416.005
+custom_fonts/font = SubResource( 1 )
+pressed = true
+text = "Music"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -56,3 +92,7 @@ __meta__ = {
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
 [connection signal="button_up" from="ButtonPrevious" to="." method="_on_ButtonPrevious_button_up"]
 [connection signal="button_up" from="ButtonNext" to="." method="_on_ButtonNext_button_up"]
+[connection signal="toggled" from="SoundButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="mouse_exited" from="MusicSlider" to="." method="_on_MusicSlider_mouse_exited"]
+[connection signal="value_changed" from="MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="toggled" from="MusicButton" to="." method="_on_MusicButton_toggled"]
