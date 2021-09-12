@@ -40,7 +40,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="ScrollContainer"]
 margin_right = 500.0
-margin_bottom = 872.0
+margin_bottom = 942.0
 rect_min_size = Vector2( 500, 400 )
 custom_fonts/font = SubResource( 2 )
 text = "(c) 2021 Roman \"shinkarom\" Shynkarenko
@@ -51,7 +51,8 @@ Fonts: Kenney Blocks, Kenney High by kenney.nl
 
 Audio:
 Summer in Town by @nop (c) copyright 2021 Licensed under a Creative Commons Attribution Noncommercial  (3.0) license. http://dig.ccmixter.org/files/Lancefield/64029 
-Happy Rock by  www.bensound.com"
+Happy Rock by  www.bensound.com
+click1 from Interface Sounds by kenney.nl"
 autowrap = true
 
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
